@@ -11,6 +11,7 @@ const getTypeHandler = async (req, res) => {
     }
 };
 
+
 module.exports = {
     getTypeHandler
 }

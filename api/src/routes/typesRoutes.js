@@ -4,4 +4,5 @@ const typesRoutes = Router();
 
 typesRoutes.get("/", getTypeHandler);
 
+
 module.exports = typesRoutes;

@@ -22,6 +22,7 @@ const  getPokemonHandler = async (req, res) => {
 };
 
 const getDetailHandler = async (req, res) => {
+    
     const { id } = req.params;
 
     const source = isNaN(id) ? "bdd" : "api"

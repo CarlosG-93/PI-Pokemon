@@ -3,6 +3,7 @@ const axios = require('axios');
 const { infoApi } = require('../utils/index')
 
 const getAllTypes = async () => {
+    
     const typeBd = await Type.findAll();
     const listApi = (await axios.get('https://pokeapi.co/api/v2/type/')).data;
     const pokeApi = infoApi(listApi);

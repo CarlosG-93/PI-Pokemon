@@ -16,6 +16,7 @@ const createPokeDB = async(name, image, hp, attack, defense, speed, height, weig
     });
 };
 
+
 const getPokeById = async (id, source) => {
     const poke = source === "api" ? (await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`)).data 
     : await Pokemon.findByPk(id);
@@ -31,6 +32,7 @@ const getAllPokemon = async () => {
     const pokeApi = infoApi(listApi);
     return [...pokeBD, ...pokeApi]
 };
+
 
 const getPokeByName = async (name) => {
     const listApi = (await axios.get('https://pokeapi.co/api/v2/pokemon/')).data;
@@ -53,6 +55,7 @@ const getPokeByName = async (name) => {
     return [...pokeFiltered,...pokeDb];
 
 };
+
 
 module.exports = {
     createPokeDB,

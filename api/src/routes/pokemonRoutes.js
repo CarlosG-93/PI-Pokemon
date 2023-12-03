@@ -5,9 +5,7 @@ const pokemonRoutes = Router();
 // pokemonRoutes.get("/search" , getNameHandler)
 
 pokemonRoutes.get("/", getPokemonHandler);
-
 pokemonRoutes.get("/:id", getDetailHandler);
-
 pokemonRoutes.post("/", createPokemonHandler);
 
 module.exports = pokemonRoutes;
