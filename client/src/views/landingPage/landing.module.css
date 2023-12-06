@@ -1,0 +1,35 @@
+.divOpen {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-image: url('../../../public/pokemon1.gif');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.divButton {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.link {
+    text-decoration: none;
+}
+
+.logo {
+    display:inline-block;
+    transform:translatex(-343px) translatey(-130px);
+    position:relative;
+    top:-103px;
+    left:-74px;
+    width:55%;
+}
+
+button{
+position:relative;
+ top:-193px;
+ left:-652px;
+ right:37px;
+}

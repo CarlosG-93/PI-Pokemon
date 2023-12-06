@@ -1,0 +1,21 @@
+.cardList {
+    width: 90vw;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 20px;
+}
+
+.div{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    height: 100%;
+}
+.no-div{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    height: 350px;
+    width: 100%;
+}
