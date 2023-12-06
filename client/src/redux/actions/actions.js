@@ -5,10 +5,10 @@ export function postPokemon(info){
     return async function (dispatch) {
         try {
             await axios.post('http://localhost:3001/pokemons',info)
-            alert('usuario creado correctamente')
+            alert('Pokemon creado correctamente')
             dispatch({
                 type:POST_POKEMON,
-                payload: 'ok'
+                payload: info
             })
         } catch (error) {
             alert(error.message)

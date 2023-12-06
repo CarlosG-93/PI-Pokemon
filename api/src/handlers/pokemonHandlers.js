@@ -37,10 +37,10 @@ const getDetailHandler = async (req, res) => {
 };
 
 const createPokemonHandler = async (req, res) => {
-    const { name, image, hp, attack, defense, speed, height, weight } = req.body;
+    const { name, img, hp, attack, defense, speed, height, weight } = req.body;
 
     try {
-        const response = await createPokeDB(name, image, hp, attack, defense, speed, height, weight)
+        const response = await createPokeDB(name, img, hp, attack, defense, speed, height, weight)
         res.status(200).json(response)
     } catch (error) {
         res.status(400).json({error: error.message})

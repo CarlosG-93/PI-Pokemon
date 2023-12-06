@@ -1,15 +1,15 @@
-import { FILTER_NAME, GET_ONE_POKEMON, GET_POKEMON, PAGINATE, LOADING_DETAILS, LOADING_POKEMONS, CLOSE_FILTER, GET_TYPES } from '../actions/actions-types';
+import { FILTER_NAME, GET_ONE_POKEMON, GET_POKEMON, PAGINATE, LOADING_DETAILS, LOADING_POKEMONS, CLOSE_FILTER, GET_TYPES, POST_POKEMON } from '../actions/actions-types';
 
 let initialState = {
-    pokemons:[],
-    pokemonsPage:[],
+    pokemons: [],
+    pokemonsPage: [],
     currentPage: 0,
-    pokefilter:[],
-    onePokemon:[],
-    loadingDetails:false,
-    loadingPokemons:false,
+    pokefilter: [],
+    onePokemon: [],
+    loadingDetails: false,
+    loadingPokemons: false,
     filter: false,
-    types:[],
+    types: [],
 };
 
 const reducer = (state = initialState, action) => {
@@ -22,59 +22,65 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 pokemons: action.payload,
-                pokemonsPage: [...action.payload].splice(0,pokemons_Per_Page),
+                pokemonsPage: [...action.payload].splice(0, pokemons_Per_Page),
                 loadingPokemons: false
             }
         case GET_TYPES:
-            return{
+            return {
                 ...state,
                 types: action.payload
             }
 
         case FILTER_NAME:
-            return{
+            return {
                 ...state,
                 pokefilter: action.payload,
                 loadingPokemons: false,
-                filter:true
+                filter: true
             }
-        
+
         case PAGINATE:
             const next_page = state.currentPage + 1
             const prev_page = state.currentPage - 1
-            const index = action.payload === 'next' ? next_page  * pokemons_Per_Page: prev_page * pokemons_Per_Page
-            if(action.payload ==='prev' && index <0)return {...state}
-            if(action.payload === 'next' && index>= state.pokemons.length)return {...state}
+            const index = action.payload === 'next' ? next_page * pokemons_Per_Page : prev_page * pokemons_Per_Page
+            if (action.payload === 'prev' && index < 0) return { ...state }
+            if (action.payload === 'next' && index >= state.pokemons.length) return { ...state }
             return {
                 ...state,
-                currentPage: action.payload==='next' ? next_page:prev_page,
-                pokemonsPage: [...state.pokemons].splice(index,pokemons_Per_Page)
+                currentPage: action.payload === 'next' ? next_page : prev_page,
+                pokemonsPage: [...state.pokemons].splice(index, pokemons_Per_Page)
             }
 
         case GET_ONE_POKEMON:
-            return{
+            return {
                 ...state,
                 onePokemon: action.payload,
-                loadingDetails: false, 
+                loadingDetails: false,
             }
         case LOADING_DETAILS:
-            return{
+            return {
                 ...state,
                 loadingDetails: action.payload
             }
         case LOADING_POKEMONS:
-            return{
+            return {
                 ...state,
                 loadingPokemons: action.payload
             }
         case CLOSE_FILTER:
-            return{
+            return {
                 ...state,
                 filter: action.payload
             }
-        
-    
-        default: return {...state}
+        case POST_POKEMON:
+            return {
+                ...state,
+                pokemons: [...state.pokemons, action.payload],
+                loadingPokemons: false,
+            }
+
+
+        default: return { ...state }
     }
 };
 
