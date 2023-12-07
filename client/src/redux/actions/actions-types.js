@@ -15,3 +15,5 @@ export const LOADING_POKEMONS = 'LOADING_POKEMONS'
 export const CLOSE_FILTER = 'CLOSE_FILTER'
 
 export const GET_TYPES = 'GET_TYPES'
+
+export const ORDER = 'ORDER'

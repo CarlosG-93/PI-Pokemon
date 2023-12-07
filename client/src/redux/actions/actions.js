@@ -1,4 +1,4 @@
-import { POST_POKEMON, GET_POKEMON, FILTER_NAME, PAGINATE, GET_ONE_POKEMON, LOADING_DETAILS, LOADING_POKEMONS, CLOSE_FILTER, GET_TYPES } from './actions-types'
+import { POST_POKEMON, GET_POKEMON, FILTER_NAME, PAGINATE, GET_ONE_POKEMON, LOADING_DETAILS, LOADING_POKEMONS, CLOSE_FILTER, GET_TYPES, ORDER } from './actions-types'
 import axios from "axios"
 
 export function postPokemon(info) {
@@ -101,5 +101,12 @@ export function getTypes() {
         } catch (error) {
             alert(error.message)
         }
+    }
+}
+
+export function order(order) {
+    return {
+        type: ORDER,
+        payload: order
     }
 }

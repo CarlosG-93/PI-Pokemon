@@ -1,4 +1,4 @@
-import { FILTER_NAME, GET_ONE_POKEMON, GET_POKEMON, PAGINATE, LOADING_DETAILS, LOADING_POKEMONS, CLOSE_FILTER, GET_TYPES, POST_POKEMON } from '../actions/actions-types';
+import { FILTER_NAME, GET_ONE_POKEMON, GET_POKEMON, PAGINATE, LOADING_DETAILS, LOADING_POKEMONS, CLOSE_FILTER, GET_TYPES, POST_POKEMON, ORDER } from '../actions/actions-types';
 
 let initialState = {
     pokemons: [],
@@ -81,6 +81,28 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 pokemons: [...state.pokemons, action.payload],
                 
+            }
+
+        case ORDER:
+            let orderCopy = [ ...state.pokemons ];
+                if(action.payload === "A") {
+                    orderCopy.sort(
+                        (a, b) => {
+                            if(a.name > b.name) return 1;
+                            else return -1;
+                        }
+                    )
+                } else if (action.payload === "D") {
+                    orderCopy.sort(
+                        (a, b) => {
+                            if(a.name < b.name) return 1;
+                            else return -1;
+                        }
+                    )
+                }
+            return {
+                ...state,
+                pokemons: orderCopy
             }
 
 
