@@ -57,26 +57,30 @@ const reducer = (state = initialState, action) => {
                 onePokemon: action.payload,
                 loadingDetails: false,
             }
+
         case LOADING_DETAILS:
             return {
                 ...state,
                 loadingDetails: action.payload
             }
+
         case LOADING_POKEMONS:
             return {
                 ...state,
                 loadingPokemons: action.payload
             }
+
         case CLOSE_FILTER:
             return {
                 ...state,
                 filter: action.payload
             }
+
         case POST_POKEMON:
             return {
                 ...state,
                 pokemons: [...state.pokemons, action.payload],
-                loadingPokemons: false,
+                
             }
 
 

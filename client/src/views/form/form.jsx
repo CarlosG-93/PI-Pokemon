@@ -142,6 +142,7 @@ const onChangeRange = (event) => {
 const handleSubmit = (event) => {
     event.preventDefault()
         dispatch(postPokemon(state))
+        console.log(state);
     
 }
 
